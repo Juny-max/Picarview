@@ -8,8 +8,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLDivElement>(null)
-  const subtitleRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -33,44 +31,6 @@ export function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation on load
-      const titleChars = titleRef.current?.querySelectorAll('.char')
-      if (titleChars) {
-        gsap.fromTo(
-          titleChars,
-          {
-            y: 150,
-            opacity: 0,
-            rotateX: -90,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            rotateX: 0,
-            duration: 1.2,
-            stagger: 0.08,
-            ease: 'power4.out',
-            delay: 0.5,
-          }
-        )
-      }
-
-      // Subtitle animation
-      gsap.fromTo(
-        subtitleRef.current,
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power4.out',
-          delay: 1.2,
-        }
-      )
-
       // Scroll-triggered fade out
       gsap.to(overlayRef.current, {
         opacity: 0.9,
@@ -81,35 +41,10 @@ export function Hero() {
           scrub: 1,
         },
       })
-
-      gsap.to(titleRef.current, {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'center center',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      })
-
-      gsap.to(subtitleRef.current, {
-        y: -50,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'center center',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      })
     }, heroRef)
 
     return () => ctx.revert()
   }, [])
-
-  const titleText = 'PICARVIEW'
-  const chars = titleText.split('')
 
   return (
     <section
@@ -129,31 +64,13 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-20 text-center px-4">
         {/* Main Title */}
-        <div ref={titleRef} className="mask-reveal mb-6 perspective-1000">
+        <div className="mask-reveal mb-6 perspective-1000">
           <h1 
             className="hero-title text-[12vw] md:text-[15vw] text-white tracking-tighter leading-none"
             style={{ perspective: '1000px' }}
           >
-            {chars.map((char, i) => (
-              <span
-                key={i}
-                className="char inline-block"
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                {char}
-              </span>
-            ))}
+            PICARVIEW
           </h1>
-        </div>
-
-        {/* Subtitle */}
-        <div
-          ref={subtitleRef}
-          className="relative inline-block px-8 py-4 rounded-full border border-white/20"
-        >
-          <p className="text-2xl md:text-3xl text-zinc-300 tracking-wide uppercase">
-            Create your view
-          </p>
         </div>
 
         {/* Scroll Indicator */}
@@ -161,6 +78,10 @@ export function Hero() {
           <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent" />
         </div>
+      </div>
+
+      <div className="hero-signature">
+        <span className="handwriting">Create your view</span>
       </div>
 
       {/* Decorative corner elements */}

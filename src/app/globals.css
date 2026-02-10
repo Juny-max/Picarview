@@ -98,6 +98,30 @@ body {
   line-height: 0.9;
 }
 
+.hero-signature {
+  position: absolute;
+  right: clamp(16px, 4vw, 56px);
+  bottom: clamp(24px, 5vw, 64px);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.handwriting {
+  display: inline-block;
+  font-family: var(--font-bacalisties);
+  font-size: clamp(1.6rem, 3.4vw, 3.4rem);
+  color: rgba(255, 248, 240, 0.95);
+  letter-spacing: 0.02em;
+  clip-path: inset(0 100% 0 0);
+  animation: handwriting-reveal 2.4s ease forwards;
+}
+
+@keyframes handwriting-reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 /* Liquid glass canvas */
 .liquid-canvas {
   position: absolute;
