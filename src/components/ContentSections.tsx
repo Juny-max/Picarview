@@ -763,7 +763,7 @@ function PromiseSection() {
           
           <div className="promise-line pt-8 mt-12 border-t border-white/10">
             <p className="text-lg md:text-xl text-zinc-300 leading-relaxed mb-6">
-              If Picarview designed it, it's <span className="text-white font-semibold">intentional</span>,{' '}
+              If Picarview designed it, it&apos;s <span className="text-white font-semibold">intentional</span>,{' '}
               <span className="text-white font-semibold">impactful</span>, and{' '}
               <span className="text-white font-semibold">memorable</span>.
             </p>
@@ -785,11 +785,11 @@ function ContactSection() {
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-zinc-500 mb-4">06 — Contact</p>
           <h2 className="font-metropolis-black text-5xl md:text-6xl uppercase text-black leading-none mb-6">
-            Let's Create<br />
+            Let&apos;s Create<br />
             Your View
           </h2>
           <p className="text-lg text-zinc-600 max-w-xl">
-            Ready to transform your vision into meaningful experiences? Let's start a conversation.
+            Ready to transform your vision into meaningful experiences? Let&apos;s start a conversation.
           </p>
         </div>
         <div className="flex flex-col gap-6 lg:items-end">
