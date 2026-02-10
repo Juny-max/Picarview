@@ -91,7 +91,7 @@ function DiagonalRazorTransition() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: 'bottom top',
+          end: '+=160%',
           scrub: 1,
           pin: true,
         },
@@ -100,31 +100,31 @@ function DiagonalRazorTransition() {
       // Initial pre-animations (rings, scan lines, particles)
       tl.fromTo(preAnimRef.current, 
         { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
+        { opacity: 1, duration: 0.45 }
       )
       .to(ringsRef.current,
-        { scale: 1.5, opacity: 0.8, duration: 0.4 },
+        { scale: 1.5, opacity: 0.8, duration: 0.6 },
         0
       )
       .to(scanLineRef.current,
-        { y: '100vh', duration: 0.5 },
+        { y: '100vh', duration: 0.75 },
         0.1
       )
       // Fade out pre-animations
       .to(preAnimRef.current, {
         opacity: 0,
-        duration: 0.2,
+        duration: 0.35,
       })
       // Slide panels in diagonally
       .to([topPanelRef.current, bottomPanelRef.current], {
         x: 0,
-        duration: 1,
+        duration: 1.4,
         ease: 'power2.inOut',
       })
       // Lock together and fade in content
       .to(contentRef.current, {
         opacity: 1,
-        duration: 0.5,
+        duration: 0.7,
       }, '-=0.3')
 
     }, containerRef)
